@@ -1,0 +1,40 @@
+﻿<Window x:Class="CinemaPoster.MovieDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaPoster"
+        mc:Ignorable="d"
+        Title="Информация о фильме" Height="450" Width="800"
+        Background="#FF1C1C1C">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Name="MoviePoster" Width="200" Height="300" Stretch="Uniform" Margin="0,0,10,0" Grid.Column="0"/>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Name="MovieTitle" FontSize="24" FontWeight="Bold" Foreground="White" />
+            <TextBlock Name="MovieGenre" FontSize="16" Foreground="LightGray" />
+            <TextBlock Name="MovieDescription" FontSize="14" Foreground="Gray" TextWrapping="Wrap" Margin="0,10,0,10" />
+            <TextBlock Name="MovieDirector" FontSize="14" Foreground="White" />
+            <TextBlock Name="MovieActors" FontSize="14" Foreground="White" />
+
+            <TextBlock Text="Расписание сеансов:" FontSize="16" FontWeight="Bold" Foreground="White" Margin="0,20,0,10"/>
+            <ItemsControl Name="ShowtimesItemsControl">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" FontSize="14" Foreground="LightGray" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>
+</Window>
